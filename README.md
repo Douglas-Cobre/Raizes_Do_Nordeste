@@ -26,7 +26,7 @@ O foco desta entrega e permitir que o avaliador execute, teste e entenda o MVP p
 
 O projeto ja inclui Gradle Wrapper, entao nao e necessario instalar o Gradle separadamente.
 
-## Configuracao de ambiente
+## Configuração de ambiente
 
 As principais variaveis usadas pela aplicacao sao:
 
@@ -79,7 +79,7 @@ Neste MVP academico, o schema e criado/atualizado pelo Hibernate em ambiente de 
 
 ## Dados iniciais
 
-Ao iniciar a aplicacao, `DataInitializer` cria dados minimos de demonstracao quando eles ainda nao existem.
+Ao iniciar a aplicação, `DataInitializer` cria dados minimos de demonstracao quando eles ainda nao existem.
 
 Credenciais de administrador:
 
