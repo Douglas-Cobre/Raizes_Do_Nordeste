@@ -1,0 +1,109 @@
+@startuml
+hide methods
+skinparam classAttributeIconSize 0
+
+class Cliente {
+  id: Long
+  nome: String
+  email: String
+  senha: String
+  telefone: String
+  consentimentoLgpd: Boolean
+  dataConsentimento: LocalDateTime
+}
+class Fidelidade {
+  id: Long
+  pontos: Integer
+  nivel: String
+}
+class Unidade {
+  id: Long
+  nome: String
+  cidade: String
+  estado: String
+  ativa: Boolean
+  horarioAbertura: LocalTime
+  horarioFechamento: LocalTime
+  aceitaApp: Boolean
+  aceitaTotem: Boolean
+  aceitaBalcao: Boolean
+  aceitaPickup: Boolean
+  cozinhaCompleta: Boolean
+  pedidos: List<Pedido>
+  funcionarios: List<Funcionario>
+  estoques: List<Estoque>
+  produtosUnidade: List<ProdutoUnidade>
+}
+class Funcionario {
+  id: Long
+  nome: String
+  email: String
+  senha: String
+  cargo: CargoFuncionario
+  ativo: Boolean
+}
+class Produto {
+  id: Long
+  nome: String
+  descricao: String
+  disponivel: Boolean
+  categoria: String
+  preco: Double
+}
+class ProdutoUnidade {
+  id: Long
+  preco: BigDecimal
+  disponivel: Boolean
+  observacaoRegional: String
+  dataInicioDisponibilidade: LocalDate
+  dataFimDisponibilidade: LocalDate
+}
+class Estoque {
+  id: Long
+  quantidade: Integer
+  estoqueMinimo: Integer
+}
+class Pedido {
+  id: Long
+  status: StatusPedido
+  canalPedido: CanalPedido
+  total: BigDecimal
+  desconto: BigDecimal
+  dataCriacao: LocalDateTime
+}
+class ItemPedido {
+  id: Long
+  quantidade: Integer
+  precoUnitario: BigDecimal
+  subtotal: BigDecimal
+}
+class Pagamento {
+  id: Long
+  status: StatusPagamento
+  codigoTransacao: String
+  valor: BigDecimal
+  dataPagamento: LocalDateTime
+  metodoPagamento: MetodoPagamento
+}
+class Auditoria {
+  id: Long
+  acao: String
+  usuario: String
+  entidade: String
+  dataHora: LocalDateTime
+  valorAnterior: String
+  valorNovo: String
+}
+
+Cliente "1" -- "1" Fidelidade
+Cliente "1" -- "0..*" Pedido
+Unidade "1" -- "0..*" Pedido
+Pedido "1" *-right- "1..*" ItemPedido
+Produto "1" -- "0..*" ItemPedido
+Pedido "1" -down- "0..1" Pagamento
+Unidade "1" -- "0..*" Funcionario
+Unidade "1" -- "0..*" Estoque
+Produto "1" -- "0..*" Estoque
+Unidade "1" -- "0..*" ProdutoUnidade
+Produto "1" -- "0..*" ProdutoUnidade
+@enduml

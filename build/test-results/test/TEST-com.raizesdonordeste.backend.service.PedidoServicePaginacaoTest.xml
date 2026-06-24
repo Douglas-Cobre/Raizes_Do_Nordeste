@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.raizesdonordeste.backend.service.PedidoServicePaginacaoTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-06-23T13:15:31.511Z" hostname="NITRO-V15" time="0.404">
+  <properties/>
+  <testcase name="deveManterFiltroPorCanalNaConsultaPaginada()" classname="com.raizesdonordeste.backend.service.PedidoServicePaginacaoTest" time="0.404"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

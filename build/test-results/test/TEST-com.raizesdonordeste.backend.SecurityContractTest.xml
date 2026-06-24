@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.raizesdonordeste.backend.SecurityContractTest" tests="3" skipped="0" failures="1" errors="0" timestamp="2026-06-23T13:15:30.360Z" hostname="NITRO-V15" time="0.358">
+  <properties/>
+  <testcase name="endpointProtegidoSemTokenRetorna401Padronizado()" classname="com.raizesdonordeste.backend.SecurityContractTest" time="0.041"/>
+  <testcase name="clienteNaoPodeAtualizarStatusDoPedido()" classname="com.raizesdonordeste.backend.SecurityContractTest" time="0.304">
+    <failure message="java.lang.AssertionError: Status expected:&lt;403&gt; but was:&lt;500&gt;" type="java.lang.AssertionError">java.lang.AssertionError: Status expected:&lt;403&gt; but was:&lt;500&gt;
+	at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:61)
+	at org.springframework.test.util.AssertionErrors.assertEquals(AssertionErrors.java:128)
+	at org.springframework.test.web.servlet.result.StatusResultMatchers.lambda$matcher$9(StatusResultMatchers.java:640)
+	at org.springframework.test.web.servlet.MockMvc$1.andExpect(MockMvc.java:214)
+	at com.raizesdonordeste.backend.SecurityContractTest.clienteNaoPodeAtualizarStatusDoPedido(SecurityContractTest.java:59)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+</failure>
+  </testcase>
+  <testcase name="tokenInvalidoRetorna401Padronizado()" classname="com.raizesdonordeste.backend.SecurityContractTest" time="0.01"/>
+  <system-out><![CDATA[2026-06-23T10:15:30.349-03:00  INFO 36008 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.raizesdonordeste.backend.SecurityContractTest]: SecurityContractTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-06-23T10:15:30.354-03:00  INFO 36008 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.raizesdonordeste.backend.BackendApplication for test class com.raizesdonordeste.backend.SecurityContractTest
+
+MockHttpServletRequest:
+      HTTP Method = PATCH
+      Request URI = /pedidos/1/status
+       Parameters = {status=[EM_PREPARO]}
+          Headers = [Authorization:"Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJjbGllbnRlLnRlc3RlQHJhaXplc2Rvbm9yZGVzdGUuY29tIiwiaWF0IjoxNzgyMjIwNTMwLCJleHAiOjE3ODIyNDkzMzAsInJvbGUiOiJDTElFTlRFIiwibmFtZSI6IkNsaWVudGUgVGVzdGUifQ.SntYwRC_AC4NnXROc0m3FxpIiKxinmWDAwTqqcSSKfPJKFb61M7fLNJ1JYjbmUSY"]
+             Body = null
+    Session Attrs = {}
+
+Handler:
+             Type = com.raizesdonordeste.backend.controller.PedidoController
+           Method = com.raizesdonordeste.backend.controller.PedidoController#atualizarStatus(Long, StatusPedido)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = org.springframework.security.authorization.AuthorizationDeniedException
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 500
+    Error message = null
+          Headers = [Vary:"Origin", "Access-Control-Request-Method", "Access-Control-Request-Headers", Content-Type:"application/json", X-Content-Type-Options:"nosniff", X-XSS-Protection:"0", Cache-Control:"no-cache, no-store, max-age=0, must-revalidate", Pragma:"no-cache", Expires:"0", X-Frame-Options:"DENY"]
+     Content type = application/json
+             Body = {"error":"ERRO_INTERNO","message":"Ocorreu um erro inesperado ao processar a requisição.","details":[],"timestamp":"2026-06-23T10:15:30.6836653-03:00","path":"/pedidos/1/status","requestId":null}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

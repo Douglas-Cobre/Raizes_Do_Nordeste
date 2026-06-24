@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - SecurityContractTest</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>SecurityContractTest</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/com.raizesdonordeste.backend.html">com.raizesdonordeste.backend</a> &gt; SecurityContractTest</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">3</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">1</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">0.355s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox failures" id="successRate">
+<div class="percent">66%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="tab-container">
+<ul class="tabLinks">
+<li>
+<a href="#">Failed tests</a>
+</li>
+<li>
+<a href="#">Tests</a>
+</li>
+<li>
+<a href="#">Standard output</a>
+</li>
+</ul>
+<div class="tab">
+<h2>Failed tests</h2>
+<div class="test">
+<a name="clienteNaoPodeAtualizarStatusDoPedido()"></a>
+<h3 class="failures">clienteNaoPodeAtualizarStatusDoPedido()</h3>
+<span class="code">
+<pre>java.lang.AssertionError: Status expected:&lt;403&gt; but was:&lt;500&gt;
+	at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:61)
+	at org.springframework.test.util.AssertionErrors.assertEquals(AssertionErrors.java:128)
+	at org.springframework.test.web.servlet.result.StatusResultMatchers.lambda$matcher$9(StatusResultMatchers.java:640)
+	at org.springframework.test.web.servlet.MockMvc$1.andExpect(MockMvc.java:214)
+	at com.raizesdonordeste.backend.SecurityContractTest.clienteNaoPodeAtualizarStatusDoPedido(SecurityContractTest.java:59)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+</pre>
+</span>
+</div>
+</div>
+<div class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="failures">clienteNaoPodeAtualizarStatusDoPedido()</td>
+<td class="failures">0.304s</td>
+<td class="failures">failed</td>
+</tr>
+<tr>
+<td class="success">endpointProtegidoSemTokenRetorna401Padronizado()</td>
+<td class="success">0.041s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">tokenInvalidoRetorna401Padronizado()</td>
+<td class="success">0.010s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>2026-06-23T10:15:30.349-03:00  INFO 36008 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.raizesdonordeste.backend.SecurityContractTest]: SecurityContractTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-06-23T10:15:30.354-03:00  INFO 36008 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.raizesdonordeste.backend.BackendApplication for test class com.raizesdonordeste.backend.SecurityContractTest
+
+MockHttpServletRequest:
+      HTTP Method = PATCH
+      Request URI = /pedidos/1/status
+       Parameters = {status=[EM_PREPARO]}
+          Headers = [Authorization:&quot;Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJjbGllbnRlLnRlc3RlQHJhaXplc2Rvbm9yZGVzdGUuY29tIiwiaWF0IjoxNzgyMjIwNTMwLCJleHAiOjE3ODIyNDkzMzAsInJvbGUiOiJDTElFTlRFIiwibmFtZSI6IkNsaWVudGUgVGVzdGUifQ.SntYwRC_AC4NnXROc0m3FxpIiKxinmWDAwTqqcSSKfPJKFb61M7fLNJ1JYjbmUSY&quot;]
+             Body = null
+    Session Attrs = {}
+
+Handler:
+             Type = com.raizesdonordeste.backend.controller.PedidoController
+           Method = com.raizesdonordeste.backend.controller.PedidoController#atualizarStatus(Long, StatusPedido)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = org.springframework.security.authorization.AuthorizationDeniedException
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 500
+    Error message = null
+          Headers = [Vary:&quot;Origin&quot;, &quot;Access-Control-Request-Method&quot;, &quot;Access-Control-Request-Headers&quot;, Content-Type:&quot;application/json&quot;, X-Content-Type-Options:&quot;nosniff&quot;, X-XSS-Protection:&quot;0&quot;, Cache-Control:&quot;no-cache, no-store, max-age=0, must-revalidate&quot;, Pragma:&quot;no-cache&quot;, Expires:&quot;0&quot;, X-Frame-Options:&quot;DENY&quot;]
+     Content type = application/json
+             Body = {&quot;error&quot;:&quot;ERRO_INTERNO&quot;,&quot;message&quot;:&quot;Ocorreu um erro inesperado ao processar a requisição.&quot;,&quot;details&quot;:[],&quot;timestamp&quot;:&quot;2026-06-23T10:15:30.6836653-03:00&quot;,&quot;path&quot;:&quot;/pedidos/1/status&quot;,&quot;requestId&quot;:null}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="https://www.gradle.org">Gradle 8.14.4</a> at 23 de jun. de 2026 10:15:32</p>
+</div>
+</div>
+</body>
+</html>

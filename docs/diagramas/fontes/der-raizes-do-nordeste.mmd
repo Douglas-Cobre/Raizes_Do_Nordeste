@@ -1,0 +1,112 @@
+erDiagram
+    CLIENTE ||--o| FIDELIDADE : possui
+    CLIENTE ||--o{ PEDIDO : realiza
+    UNIDADE ||--o{ PEDIDO : recebe
+    PEDIDO ||--|{ ITEM_PEDIDO : contem
+    PRODUTO ||--o{ ITEM_PEDIDO : compoe
+    PEDIDO ||--o| PAGAMENTO : possui
+    UNIDADE ||--o{ FUNCIONARIO : emprega
+    UNIDADE ||--o{ ESTOQUE : controla
+    PRODUTO ||--o{ ESTOQUE : armazenado_em
+    UNIDADE ||--o{ PRODUTO_UNIDADE : oferece
+    PRODUTO ||--o{ PRODUTO_UNIDADE : disponibilizado_em
+
+    CLIENTE {
+        BIGINT id PK
+        VARCHAR nome
+        VARCHAR email
+        VARCHAR senha
+        VARCHAR telefone
+        BOOLEAN consentimento_lgpd
+        TIMESTAMP data_consentimento
+    }
+    FIDELIDADE {
+        BIGINT id PK
+        INTEGER pontos
+        VARCHAR nivel
+        BIGINT cliente_id FK, UK
+    }
+    UNIDADE {
+        BIGINT id PK
+        VARCHAR nome
+        VARCHAR cidade
+        VARCHAR estado
+        BOOLEAN ativa
+        TIME horario_abertura
+        TIME horario_fechamento
+        BOOLEAN aceita_app
+        BOOLEAN aceita_totem
+        BOOLEAN aceita_balcao
+        BOOLEAN aceita_pickup
+        BOOLEAN cozinha_completa
+    }
+    FUNCIONARIO {
+        BIGINT id PK
+        VARCHAR nome
+        VARCHAR email
+        VARCHAR senha
+        VARCHAR cargo
+        BOOLEAN ativo
+        BIGINT unidade_id FK
+    }
+    PRODUTO {
+        BIGINT id PK
+        VARCHAR nome
+        VARCHAR descricao
+        BOOLEAN disponivel
+        VARCHAR categoria
+        DOUBLE preco
+    }
+    PRODUTO_UNIDADE {
+        BIGINT id PK
+        DECIMAL preco
+        BOOLEAN disponivel
+        VARCHAR observacao_regional
+        DATE data_inicio_disponibilidade
+        DATE data_fim_disponibilidade
+        BIGINT produto_id FK
+        BIGINT unidade_id FK
+    }
+    ESTOQUE {
+        BIGINT id PK
+        INTEGER quantidade
+        INTEGER estoque_minimo
+        BIGINT produto_id FK
+        BIGINT unidade_id FK
+    }
+    PEDIDO {
+        BIGINT id PK
+        VARCHAR status
+        VARCHAR canal_pedido
+        DECIMAL total
+        DECIMAL desconto
+        TIMESTAMP data_criacao
+        BIGINT cliente_id FK
+        BIGINT unidade_id FK
+    }
+    ITEM_PEDIDO {
+        BIGINT id PK
+        INTEGER quantidade
+        DECIMAL preco_unitario
+        DECIMAL subtotal
+        BIGINT pedido_id FK
+        BIGINT produto_id FK
+    }
+    PAGAMENTO {
+        BIGINT id PK
+        VARCHAR status
+        VARCHAR codigo_transacao
+        DECIMAL valor
+        TIMESTAMP data_pagamento
+        VARCHAR metodo_pagamento
+        BIGINT pedido_id FK, UK
+    }
+    AUDITORIA {
+        BIGINT id PK
+        VARCHAR acao
+        VARCHAR usuario
+        VARCHAR entidade
+        TIMESTAMP data_hora
+        VARCHAR valor_anterior
+        VARCHAR valor_novo
+    }

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.raizesdonordeste.backend.service.FidelidadeServiceTest" tests="2" skipped="0" failures="1" errors="0" timestamp="2026-06-23T13:15:31.423Z" hostname="NITRO-V15" time="0.085">
+  <properties/>
+  <testcase name="deveBloquearPontosZeroOuNegativos()" classname="com.raizesdonordeste.backend.service.FidelidadeServiceTest" time="0.08">
+    <failure message="org.assertj.core.util.introspection.IntrospectionError: &#13;&#10;Can't find any field or property with name 'error'.&#13;&#10;Error when introspecting properties was :&#13;&#10;- No getter for property 'error' in com.raizesdonordeste.backend.exception.BusinessException &#13;&#10;Error when introspecting fields was :&#13;&#10;- Unable to obtain the value of the field &lt;'error'&gt; from &lt;com.raizesdonordeste.backend.exception.BusinessException: A quantidade de pontos deve ser maior que zero.&gt;" type="org.assertj.core.util.introspection.IntrospectionError">org.assertj.core.util.introspection.IntrospectionError: 
+Can't find any field or property with name 'error'.
+Error when introspecting properties was :
+- No getter for property 'error' in com.raizesdonordeste.backend.exception.BusinessException 
+Error when introspecting fields was :
+- Unable to obtain the value of the field &lt;'error'&gt; from &lt;com.raizesdonordeste.backend.exception.BusinessException: A quantidade de pontos deve ser maior que zero.&gt;
+	at app//org.assertj.core.util.introspection.PropertyOrFieldSupport.getSimpleValue(PropertyOrFieldSupport.java:100)
+	at app//org.assertj.core.util.introspection.PropertyOrFieldSupport.getValueOf(PropertyOrFieldSupport.java:64)
+	at app//org.assertj.core.extractor.ByNameSingleExtractor.apply(ByNameSingleExtractor.java:32)
+	at app//org.assertj.core.api.AbstractAssert.extracting(AbstractAssert.java:1266)
+	at app//org.assertj.core.api.AbstractObjectAssert.extracting(AbstractObjectAssert.java:806)
+	at app//com.raizesdonordeste.backend.service.FidelidadeServiceTest.deveBloquearPontosZeroOuNegativos(FidelidadeServiceTest.java:32)
+	at java.base@17.0.19/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base@17.0.19/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base@17.0.19/java.util.ArrayList.forEach(ArrayList.java:1511)
+Caused by: org.assertj.core.util.introspection.IntrospectionError: Unable to obtain the value of the field &lt;'error'&gt; from &lt;com.raizesdonordeste.backend.exception.BusinessException: A quantidade de pontos deve ser maior que zero.&gt;
+	at app//org.assertj.core.util.introspection.FieldSupport.readSimpleField(FieldSupport.java:251)
+	at app//org.assertj.core.util.introspection.FieldSupport.fieldValue(FieldSupport.java:205)
+	at app//org.assertj.core.util.introspection.PropertyOrFieldSupport.getSimpleValue(PropertyOrFieldSupport.java:78)
+	... 8 more
+Caused by: java.lang.IllegalArgumentException: Cannot locate field error on class com.raizesdonordeste.backend.exception.BusinessException
+	at org.assertj.core.util.Preconditions.checkArgument(Preconditions.java:134)
+	at org.assertj.core.util.introspection.FieldUtils.readField(FieldUtils.java:171)
+	at org.assertj.core.util.introspection.FieldSupport.readSimpleField(FieldSupport.java:211)
+	... 10 more
+</failure>
+  </testcase>
+  <testcase name="deveLimitarSaldoAZeroAoRemoverMaisPontosQueODisponivel()" classname="com.raizesdonordeste.backend.service.FidelidadeServiceTest" time="0.004"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

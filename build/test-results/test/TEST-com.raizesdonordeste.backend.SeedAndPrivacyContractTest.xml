@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.raizesdonordeste.backend.SeedAndPrivacyContractTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2026-06-23T13:15:30.731Z" hostname="NITRO-V15" time="0.137">
+  <properties/>
+  <testcase name="responsesNaoSerializamSenhaOuHash()" classname="com.raizesdonordeste.backend.SeedAndPrivacyContractTest" time="0.102"/>
+  <testcase name="clienteSeedPossuiFidelidadeBronzeComSaldoZero()" classname="com.raizesdonordeste.backend.SeedAndPrivacyContractTest" time="0.034"/>
+  <system-out><![CDATA[2026-06-23T10:15:30.721-03:00  INFO 36008 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.raizesdonordeste.backend.SeedAndPrivacyContractTest]: SeedAndPrivacyContractTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-06-23T10:15:30.725-03:00  INFO 36008 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.raizesdonordeste.backend.BackendApplication for test class com.raizesdonordeste.backend.SeedAndPrivacyContractTest
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

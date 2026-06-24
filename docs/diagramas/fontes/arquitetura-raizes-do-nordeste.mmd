@@ -1,0 +1,49 @@
+flowchart TB
+    CLIENTES["Canais: App, Totem, Balcão e Pickup"]
+    SWAGGER["Swagger / OpenAPI"]
+
+    subgraph API["API / Interface HTTP"]
+      CONTROLLERS["Controllers REST"]
+      DTO["DTOs + Bean Validation"]
+      ERRORS["GlobalExceptionHandler\nErro JSON padronizado"]
+    end
+
+    subgraph SECURITY["Segurança"]
+      FILTER["JwtAuthenticationFilter"]
+      JWT["JwtService"]
+      ROLES["Spring Security\nADMIN / GERENTE / CLIENTE"]
+    end
+
+    subgraph APPLICATION["Aplicação / Regras de negócio"]
+      SERVICES["Services"]
+      FLOW["Pedido → Estoque → Pagamento mock → Status"]
+      AUDIT["AuditoriaService"]
+    end
+
+    subgraph DOMAIN["Domínio"]
+      ENTITIES["Entidades JPA"]
+      ENUMS["Enums de status, canal,\ncargo e pagamento"]
+    end
+
+    subgraph INFRA["Infraestrutura / Persistência"]
+      REPOS["Spring Data JPA Repositories"]
+      HIB["Hibernate ORM"]
+      SEED["DataInitializer / Seed"]
+    end
+
+    DB[("PostgreSQL")]
+    TESTDB[("H2 - testes")]
+
+    CLIENTES --> FILTER --> CONTROLLERS
+    SWAGGER --> CONTROLLERS
+    FILTER --> JWT
+    FILTER --> ROLES
+    CONTROLLERS --> DTO --> SERVICES
+    CONTROLLERS --> ERRORS
+    SERVICES --> FLOW
+    SERVICES --> AUDIT
+    SERVICES --> ENTITIES
+    SERVICES --> ENUMS
+    SERVICES --> REPOS --> HIB --> DB
+    SEED --> REPOS
+    HIB -. perfil test .-> TESTDB
